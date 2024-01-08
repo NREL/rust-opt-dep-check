@@ -6,14 +6,13 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-
 # disabling the default features (see comment in `[features]` section) should allow for compilation
-# without access to the `pyo3-log` crate
-pyo3-log = { optional = true }
+# without access to the `directories` crate
+directories = { optional = true, version = "5.0.1" }
 
 [features]
 # to disable the default features, see
 # https://doc.rust-lang.org/cargo/reference/features.html?highlight=no-default-features#the-default-feature
 # and use the `--no-default-features` flag when compiling
-default = ["pyo3-log"]
-pyo3-log = ["dep:pyo3-log"]
+default = ["directories"]
+directories = ["dep:directories"]

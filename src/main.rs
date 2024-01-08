@@ -1,11 +1,13 @@
 /// Crate for verifying functionality of feature-dependent optional dependencies
 /// # Features
-/// - `pyo3-log` - Disable functionality that relies on `pyo3-log` crate.  Enabled by default --
+/// - `directories` - Disable functionality that relies on `directories` crate.  Enabled by default --
 ///   compile with `--no-default-features` flag to disable.
 
 fn main() {
-    #[cfg(not(feature = "pyo3-log"))]
-    println!("You successfully compiled and ran the whole crate WITHOUT `pyo3-log` enabled!");
-    #[cfg(feature = "pyo3-log")]
-    println!("You successfully compiled and ran the whole crate WITH `pyo3-log` enabled!");
+    #[cfg(not(feature = "directories"))]
+    println!("You successfully compiled and ran the whole crate WITHOUT `directories` enabled!");
+    #[cfg(feature = "directories")]
+    println!("You successfully compiled and ran the whole crate WITH `directories` enabled!");
+    #[cfg(feature = "directories")]
+    println!("Home dir: {:?}", directories::UserDirs::new().unwrap().home_dir());
 }
